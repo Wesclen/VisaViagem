@@ -1,0 +1,57 @@
+body {
+  font-family: system-ui, sans-serif;
+  background: #f4f6f8;
+  padding: 100px 0px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+fieldset {
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #fff;
+}
+
+legend {
+  font-weight: 600;
+  padding: 0 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 15px;
+  padding: 500, 500, 5px, 5px;
+  
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+input, select, button {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.error {
+  color: #c00;
+  display: none;
+}

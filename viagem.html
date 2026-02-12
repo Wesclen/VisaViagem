@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="l.css">
+</head>
+<body>
+  <img src="https://rondonia.ro.gov.br/wp-content/uploads/2014/02/SELO-COR-AGEVISA-768x235.png" alt="logo" style="display: flex; max-width: 20%; height: 100px; margin: auto; width: 100%;">
+</body>
+<form id="formExecucao" action="https://api.sheetmonkey.io/form/SEU_ID_DA_SHEETMONKEY" method="post">
+  <input type="hidden" name="Carimbo de data/hora" value="x-sheetmonkey-current-date-time">
+
+  <!-- DIV GROUP -->
+  <div class="container" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+<!-- 1. SETOR -->
+  <fieldset>
+    <legend>Identificação</legend>
+
+    <div class="form-group">
+      <label>Setor que está fornecendo a Informação *</label>
+      <select name="setorinfo" id="SetorInfo">
+        <option value="Gerencia">Gerencia</option>
+        <option value="Alimentos">Alimentos</option>
+        <option value="Descentralização">Descentralização</option>
+        <option value="Engenharia e Arquitetura Hospitalar">Engenharia e Arquitetura Hospitalar</option>
+        <option value="Medicamentos">Medicamentos</option>
+        <option value="Saneanes e Cosméticos">Saneantes e Cosméticos</option>
+        <option value="Sangue">Sangue</option>
+        <option value="Programa CCIH + NSP">Programa CCIH + NSP</option>
+        <option value="Seviço de Saúde (Radiaçâo ionizante, Cozinha Hospitalar, Laboratório, ...)">Seviço de Saúde (Radiaçâo ionizante, Cozinha Hospitalar, Laboratório, ...</option>
+        <option value="Nâo Programado"> Não Programado</option>
+      </select>
+    </div>
+  </fieldset>
+
+  <!-- 2. PLANEJAMENTO -->
+  <fieldset>
+    <legend>Planejamento</legend>
+
+    <div class="form-group">
+      <label>A viagem será:</label>
+      <select name="Planejamento" required>
+        <option value="">Selecione...</option>
+        <option>PAS</option>
+        <option>Não Planejado</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>No de caso Portaria Ministerial citar o número da Portaria (número/ano)</label>
+      <input type="text" name="Portaria Ministerial" placeholder="Ex.: 123/2026">
+    </div>
+
+    <div class="form-group">
+      <label>Finalidade da Viagem *</label>
+      <select name="Finalidade da Viagem" required>
+        <option value="">Selecione...</option>
+        <option>Fiscalização / Inspeção</option>
+        <option>Monitoramento / Supervisão de atividade pactuada com o municipio</option>
+        <option>Atendimento de Demandas Judiciais / Parceiros</option>
+        <option>Viagem para fora do estado / qualificação profissional</option>
+        <option>Processo de Aquisição de serviços / Material de Distribuição Gratuita / Equipamentos / Material permanente</option>
+      </select>
+    </div>
+
+    <div class="form-group&">
+      <label>Processo SEI (use o formato 0000.000000/0000-00) *</label>
+      <input type="text"
+             id="sei"
+             name="Processo SEI"
+             placeholder="0000.000000/0000-00"
+             required>
+      <small class="error" id="seiError">Formato SEI inválido</small>
+    </div>
+  </fieldset>
+
+  <!-- 3. FONTE DO RECURSO -->
+  <fieldset>
+    <legend>Fonte do Recurso Usado</legend>
+
+    <div class="radio-group" style="display: flex; flex-direction: column;">
+    
+      <p>PAS <br>
+    1.659.0.00001 (Estado) <br>
+    1.600.0.00001 (Federal)</p>
+      <p>EXTRAPAS <br>
+    2.659.0.00001 (Estado) <br>
+    2.600.0.00001 (federal)
+  </p>
+    </div>
+    <select id="codigoRecurso">
+      <option value="1.659.0.00001">PAS - Estado</option>
+      <option value="1.600.0.00001">PAS - Federal</option>
+      <option value="2.659.0.00001">EXTRAPAS - Estadual</option>
+      <option value="2.600.0.00001">EXTRAPAS - Federal</option>
+    </select>
+    <input type="hidden" name="Fonte do Recurso Usado" id="fonteFinal">
+  </fieldset>
+
+  <!-- 4. PA -->
+  <fieldset>
+    <legend>Programa / Ação</legend>
+
+    <div class="form-group">
+      <label>PA da Ação *</label>
+      <select name="PA da Ação" required>
+        <option value="">Selecione...</option>
+        <option>2946</option>
+        <option>Outro</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Indicador da Ação Planejada - Metas 2026 *</label>
+      <select name="Indicador da Ação Planejada - Metas 2026" required>
+        <option value="">Selecione...</option>
+        <option>Porcentagem de PARTICIPAÇÃO dos agentes de VISA da GTVISA em eventos fora do estado de Rondônia</option>
+        <option>Porcentagem de ATIVIDADES de VISA om a finalidade de REDUZIR RISCOS/AGRAVOS</option>
+        <option>Proporção de hospitais com Núcleo de Segurança do Paciente(NPS) implantados que notifiquem ativamente os eventos adversos <p> relacionados à assistência à saúde no NOTIVISA, em relação ao número de hospitais com NSPs implantados.</option>
+      </select>
+    </div>
+  </fieldset>
+
+  <!-- 5. AÇÕES -->
+  <fieldset>
+    <legend>Ações</legend>
+
+    <div class="checkbox-group" style="display: flex; flex-direction: column; flex-wrap: wrap; height: 370px;">
+        <label><input type="checkbox" name="AÇÕES" value="Eventos de Vigilância Sanitária - fora do estado"> Eventos de Vigilância Sanitária - fora do estado</label><br>
+        <label><input type="checkbox" name="AÇÕES" value="SIMBRAVISA"> SIMBRAVISA</label><br>
+        <label><input type="checkbox" name="AÇÕES" value="Atender demandas Judiciais e de Parceiros"> Atender demandas Judiciais e de Parceiros</label><br>
+        <label><input type="checkbox" name="AÇÕES" value="Capacitavisa"> Capacitavisa</label><br>
+        <label><input type="checkbox" name="AÇÕES" value="Confecção de Blocos"> Confecção de Blocos</label><br>
+        <label><input type="checkbox" name="AÇÕES" value="Monitoramento VISA Municipais - CMD/SISPACTO/SANEANTES"> Monitoramento VISA Municipais - CMD/SISPACTO/SANEANTES</label><br>
+        <label><input type="checkbox" name="AÇÕES" value="Monitoramento PRAISSAN"> Monitoramento PRAISSAN</label><br>
+        <label><input type="checkbox" name="AÇÕES" value="Coleta de Amostras - PROEMA"> Coleta de Amostras - PROEMA</label><br>
+        <label><input type="checkbox" name="AÇÕES" value="Inspeção em TRS / Laboratórios de Interesse de VISA"> Inspeção em TRS / Laboratórios de Interesse de VISA</label><br>
+        <label><input type="checkbox" name="AÇÕES" value="Inspeção Serviço de Saúde - Pactuação"> Inspeção Serviço de Saúde - Pactuação</label><br>
+        <label><input type="checkbox" name="AÇÕES" value="Inspeção Hemorrede - Pactuação"> Inspeção Hemorrede - Pactuação</label><br>
+        <label><input type="checkbox" name="AÇÕES" value="Inspeção Farmácias - Pactuação"> Inspeção Farmácias - Pactuação</label><br>
+        <label><input type="checkbox" name="AÇÕES" value="Supervisão Receituário + Inspeção Farmacias Hospitalares"> Supervisão Receituário + Inspeção Farmacias Hospitalares</label><br>
+        <label><input type="checkbox" name="AÇÕES" value="Fiscalização Estrutura Física EAS"> Fiscalização Estrutura Física EAS</label><br>
+        <label><input type="checkbox" name="AÇÕES" value="Capacitação CCIH/NSP"> Capacitação CCIH/NSP</label><br>
+        <label><input type="checkbox" name="AÇÕES" value="Monitoramento CCIH/NSP"> Monitoramento CCIH/NSP</label><br>
+        <label><input type="checkbox" id="formarQualificar" name="AÇÕES" value="Formar e Qualificar"> Formar e Qualificar</label><br>
+        </div>
+
+    <div id="qualificacaoBox" class="form-group hidden">
+      <label>No caso de Formar e Qualificar, cite o município e o estado</label>
+      <input type="text" name="Qualificação Detalhes">
+    </div>
+  </fieldset>
+
+  <!-- 6. BIMESTRE -->
+  <fieldset>
+    <legend>Planejamento Temporal</legend>
+
+    <div class="form-group">
+      <label>Bimestre Planejado *</label>
+      <select name="Bimestre Planejado" required>
+        <option value="">Selecione...</option>
+        <option>1</option><option>2</option><option>3</option>
+        <option>4</option><option>5</option><option>6</option>
+      </select>
+    </div>
+  </fieldset>
+
+  <!-- 7. EXECUÇÃO FINANCEIRA -->
+  <fieldset>
+    <legend>Execução Financeira</legend>
+
+    <div class="grid-2">
+      <input type="number" step="0.01" name="Diárias 339014" placeholder="Diárias (339014)" required>
+      <input type="number" step="0.01" name="Material Consumo 339030" placeholder="Material Consumo (339030)" required>
+      <input type="number" step="0.01" name="Material Gratuito 339032" placeholder="Material Gratuito (339032)" required>
+      <input type="number" step="0.01" name="Passagens Aéreas 339033" placeholder="Passagens Aéreas (339033)" required>
+      <input type="number" step="0.01" name="Colaborador Externo 339036" placeholder="Colaborador Externo (339036)" required>
+      <input type="number" step="0.01" name="Eventos PJ 339039" placeholder="Eventos PJ (339039)" required>
+      <input type="number" step="0.01" name="Equipamento Permanente 449052" placeholder="Equipamento Permanente (449052)" required>
+
+    </div>
+  </fieldset>
+
+  <!-- 8. MUNICÍPIOS -->
+  <fieldset>
+    <legend>Municípios da Viagem</legend>
+
+    <div class="form-group">
+      <label>Municípios da Viagem *</label>
+      <input type="text" name="Municípios da Viagem" list="municipiosList" required>
+    </div>
+  </fieldset>
+
+  <button type="submit">Enviar</button>
+  <button type="reset">Limpar</button>
+</form> 
+</html>
